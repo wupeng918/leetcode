@@ -1,0 +1,24 @@
+class Solution {
+    public int arrayNesting(int[] nums) {
+        int max=1;
+    	int l=nums.length;
+    	int larger=1;
+        int count=0;;
+    	for(int i=0;i<l;i++)
+    	{
+    		int k=nums[i];
+            count++;
+    		while(nums[k]!=nums[i])
+    		{
+    			max++;
+    			k=nums[k];
+                count++;
+    		}
+    		larger=max>larger?max:larger;
+    			max=1;
+            if(l-count<max)
+                break;
+    	}
+    	return larger;
+    }
+}
